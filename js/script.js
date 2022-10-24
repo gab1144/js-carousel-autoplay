@@ -13,6 +13,7 @@ let thumbnailsTags="";
 
 const slider = el('.slider');
 const thumbnails = el('.thumbnails');
+const container = el('.container');
 
 for (let i=0; i<imagesArray.length; i++) {
   imagesTags += `
@@ -37,11 +38,19 @@ let counterImages=0;
 items[counterImages].classList.add('active');
 thumbnailItems[counterImages].classList.add('active');
 
-setInterval(nextImage, 3000);
+let autoplay = setInterval(nextImage, 3000);
 
 next.addEventListener('click', nextImage);
 
 prev.addEventListener('click', prevImage);
+
+container.addEventListener('mouseover', function(){
+  clearInterval(autoplay);
+});
+
+container.addEventListener("mouseout", function(){
+  autoplay = setInterval(nextImage, 3000);
+});
 
 function nextImage() {
   //nasconde l'immagine
