@@ -38,19 +38,24 @@ let counterImages=0;
 items[counterImages].classList.add('active');
 thumbnailItems[counterImages].classList.add('active');
 
-let autoplay = setInterval(nextImage, 3000);
+let autoplay;
+setAutoplay();
+container.addEventListener('mouseover', clearAutoplay);
+
+container.addEventListener("mouseout", setAutoplay);
 
 next.addEventListener('click', nextImage);
 
 prev.addEventListener('click', prevImage);
 
-container.addEventListener('mouseover', function(){
-  clearInterval(autoplay);
-});
 
-container.addEventListener("mouseout", function(){
+function setAutoplay() {
   autoplay = setInterval(nextImage, 3000);
-});
+}
+
+function clearAutoplay() {
+  clearInterval(autoplay);
+}
 
 function nextImage() {
   //nasconde l'immagine
