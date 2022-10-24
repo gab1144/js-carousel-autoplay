@@ -1,0 +1,89 @@
+:root {
+  --thumbnails-width: 150px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  display: flex;
+}
+
+/***** bottoni chevron *****/
+.btn-chevron {
+  position: absolute;
+  right: calc(calc(var(--thumbnails-width) / 2) - calc(30px / 2));
+  z-index: 999;
+  width: 30px;
+  aspect-ratio: 1;
+  font-size: 20px;
+  background-color: rgb(221, 206, 209);
+  border-radius: 100%;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.btn-chevron.up {
+  top: 10px;
+}
+
+.btn-chevron.down {
+  bottom: 10px;
+}
+
+.btn-chevron:hover {
+  color: blue;
+}
+/***** bottoni chevron *****/
+
+/***** immagini *****/
+.container img {
+  width: 700px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.item {
+  display: none;
+}
+
+.item.active {
+  display: block;
+}
+/***** /immagini *****/
+
+/***** thumbnails *****/
+.thumbnails {
+  width: var(--thumbnails-width);
+  height: 300px;
+  background-color: black;
+}
+
+.thumbnails img {
+  width: 100%;
+  height: calc(100% /5);
+  display: flex;
+  direction: column;
+  object-fit:cover;
+}
+
+.thumbnail-item {
+  filter: opacity(0.5);
+}
+
+.thumbnail-item.active {
+  filter: opacity(1);
+  border: 2px solid white;
+}
+/***** /thumbnails *****/
